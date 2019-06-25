@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    @try
+    {
+        <strong>@Environment.GetEnvironmentVariable("MY_ENVIRONMENT").ToString()</strong>
+    }
+    catch (Exception ex)
+    {
+        <strong>
+            Unable to get environment variable.
+            @ex.ToString()
+        </strong>
+    }
+    @try
+    {
+        <strong>@Environment.GetEnvironmentVariable("SQLCONNSTR_DEFAULT_CONNECTION").ToString()</strong>
+    }
+    catch (Exception ex)
+    {
+        <strong>
+            Unable to get environment variable.
+            @ex.ToString()
+        </strong>
+    }
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
